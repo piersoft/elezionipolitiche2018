@@ -242,7 +242,7 @@ foreach ($csv1 as $city_name => $city_a) {
   $city_a[2]=str_replace("UMBRIA - ","",$city_a[2]);
   $city_a[2]=str_replace("VENETO 1 - ","",$city_a[2]);
   $city_a[2]=str_replace("VENETO 2 - ","",$city_a[2]);
-  $city_a[3]=str_replace(" ","%20",$city_a[3]);
+//  $city_a[3]=str_replace(" ","%20",$city_a[3]);
 
   if ($city_a[3]===$citycorretta){
 //echo $city_a[3];
