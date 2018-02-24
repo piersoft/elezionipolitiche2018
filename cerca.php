@@ -139,22 +139,45 @@ foreach ($csv as $city_name => $city_a) {
   $city_a[2]=str_replace("CALABRIA - ","",$city_a[2]);
     $city_a[2]=str_replace("CAMPANIA 1 - ","",$city_a[2]);
   $city_a[2]=str_replace("CAMPANIA 2 - ","",$city_a[2]);
+  $city_a[2]=str_replace("CAMPANIA 01 - ","",$city_a[2]);
+  $city_a[2]=str_replace("CAMPANIA 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("BASILICATA - ","",$city_a[2]);
   $city_a[2]=str_replace("EMILIA-ROMAGNA - ","",$city_a[2]);
   $city_a[2]=str_replace("FRIULI-VENEZIA GIULIA - ","",$city_a[2]);
   $city_a[2]=str_replace("LAZIO 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("LAZIO 2 - ","",$city_a[2]);
+    $city_a[2]=str_replace("LAZIO 01 - ","",$city_a[2]);
+      $city_a[2]=str_replace("LAZIO 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("LOMBARDIA 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("LOMBARDIA 2 - ","",$city_a[2]);
       $city_a[2]=str_replace("LOMBARDIA 3 - ","",$city_a[2]);
         $city_a[2]=str_replace("LOMBARDIA 4 - ","",$city_a[2]);
+        $city_a[2]=str_replace("LOMBARDIA 01 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA 02 - ","",$city_a[2]);
+            $city_a[2]=str_replace("LOMBARDIA 03 - ","",$city_a[2]);
+              $city_a[2]=str_replace("LOMBARDIA 04 - ","",$city_a[2]);
+      $city_a[2]=str_replace("LOMBARDIA 05 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA 06 - ","",$city_a[2]);
+              $city_a[2]=str_replace("LOMBARDIA 07 - ","",$city_a[2]);
+                  $city_a[2]=str_replace("LOMBARDIA 08 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA 09 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA -","",$city_a[2]);
+          $city_a[2]=str_replace("SICILIA -","",$city_a[2]);
+          $city_a[2]=str_replace("PIEMONTE -","",$city_a[2]);
+          $city_a[2]=str_replace("LAZIO - ","",$city_a[2]);
+            $city_a[2]=str_replace("VENETO - ","",$city_a[2]);
+              $city_a[2]=str_replace("PUGLIA - ","",$city_a[2]);
   $city_a[2]=str_replace("MARCHE - ","",$city_a[2]);
   $city_a[2]=str_replace("PIEMONTE 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("PIEMONTE 2 - ","",$city_a[2]);
+    $city_a[2]=str_replace("PIEMONTE 01 - ","",$city_a[2]);
+      $city_a[2]=str_replace("PIEMONTE 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("PUGLIA - ","",$city_a[2]);
   $city_a[2]=str_replace("SARDEGNA - ","",$city_a[2]);
   $city_a[2]=str_replace("SICILIA 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("SICILIA 2 - ","",$city_a[2]);
+    $city_a[2]=str_replace("SICILIA 01 - ","",$city_a[2]);
+      $city_a[2]=str_replace("SICILIA 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("TOSCANA - ","",$city_a[2]);
   $city_a[2]=str_replace("TRENTINO-ALTO ADIGE/SUDTIROL - ","",$city_a[2]);
   $city_a[2]=str_replace("TRENTINO-ALTO ADIGE/SÜDTIROL - ","",$city_a[2]);
@@ -163,19 +186,21 @@ foreach ($csv as $city_name => $city_a) {
   $city_a[2]=str_replace("UMBRIA - ","",$city_a[2]);
   $city_a[2]=str_replace("VENETO 1 - ","",$city_a[2]);
   $city_a[2]=str_replace("VENETO 2 - ","",$city_a[2]);
+  $city_a[2]=str_replace("VENETO 01 - ","",$city_a[2]);
+  $city_a[2]=str_replace("VENETO 02 - ","",$city_a[2]);
+
+  $city_a[3]=str_replace("'","",$city_a[3]);
   if ($city_a[3]==$citycorretta){
-//  if (strpos($citycorretta,$city_a[3]) !== false) {
-    //  echo "ecco".$city_a[1]." ".$city_a[2];
-$colplurisen=$city_a[1];
-$colunisen=$city_a[2];
 
-echo "<b>COLLEGIO UNINOMINALE (LISTA-CANDIDATO): </b>".$colunisen."</br>";
+    $colplurisen=$city_a[1];
+    $colunisen=$city_a[2];
 
+    echo "<b>COLLEGIO UNINOMINALE (LISTA-CANDIDATO): </b>".$colunisen."</br>";
 
-$csvcandidati = array_map('str_getcsv',file('WSenUni.csv'));
+    $csvcandidati = array_map('str_getcsv',file('WSenUni.csv'));
 
 foreach ($csvcandidati as $city_name => $city_a) {
-    if (strpos($city_a[3],$colunisen) !== false) {
+    if (strpos($city_a[3],trim($colunisen)) !== false)  {
 
   echo $city_a[0]." - <b>".$city_a[5]."</b></br>";
 
@@ -190,7 +215,7 @@ $csvcandidati = array_map('str_getcsv',file('WSenPluri.csv'));
 
 foreach ($csvcandidati as $city_name => $city_a) {
 // if (strpos($city_a[2],"TRENTINO") !== false) echo "|||".$city_a[2];
-    if (strpos($city_a[2],$colplurisen) !== false) {
+    if (strpos($city_a[2],trim($colplurisen)) !== false) {
 
   echo $city_a[0]." - <b>".$city_a[4]."</b></br>";
 
@@ -214,34 +239,62 @@ $colpluricam="";
 echo "</br></br>";
 echo "<p class='smart-green'><b>CAMERA DEI DEPUTATI:</b></h1>";
 foreach ($csv1 as $city_name => $city_a) {
+
   $city_a[2]=str_replace("ABRUZZO - ","",$city_a[2]);
   $city_a[2]=str_replace("CALABRIA - ","",$city_a[2]);
     $city_a[2]=str_replace("CAMPANIA 1 - ","",$city_a[2]);
   $city_a[2]=str_replace("CAMPANIA 2 - ","",$city_a[2]);
+  $city_a[2]=str_replace("CAMPANIA 01 - ","",$city_a[2]);
+$city_a[2]=str_replace("CAMPANIA 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("BASILICATA - ","",$city_a[2]);
   $city_a[2]=str_replace("EMILIA-ROMAGNA - ","",$city_a[2]);
   $city_a[2]=str_replace("FRIULI-VENEZIA GIULIA - ","",$city_a[2]);
   $city_a[2]=str_replace("LAZIO 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("LAZIO 2 - ","",$city_a[2]);
+    $city_a[2]=str_replace("LAZIO 01 - ","",$city_a[2]);
+      $city_a[2]=str_replace("LAZIO 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("LOMBARDIA 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("LOMBARDIA 2 - ","",$city_a[2]);
       $city_a[2]=str_replace("LOMBARDIA 3 - ","",$city_a[2]);
         $city_a[2]=str_replace("LOMBARDIA 4 - ","",$city_a[2]);
+        $city_a[2]=str_replace("LOMBARDIA 01 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA 02 - ","",$city_a[2]);
+            $city_a[2]=str_replace("LOMBARDIA 03 - ","",$city_a[2]);
+              $city_a[2]=str_replace("LOMBARDIA 04 - ","",$city_a[2]);
+      $city_a[2]=str_replace("LOMBARDIA 05 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA 06 - ","",$city_a[2]);
+              $city_a[2]=str_replace("LOMBARDIA 07 - ","",$city_a[2]);
+                  $city_a[2]=str_replace("LOMBARDIA 08 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA 09 - ","",$city_a[2]);
+          $city_a[2]=str_replace("LOMBARDIA - 03","",$city_a[2]);
+
   $city_a[2]=str_replace("MARCHE - ","",$city_a[2]);
   $city_a[2]=str_replace("PIEMONTE 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("PIEMONTE 2 - ","",$city_a[2]);
+    $city_a[2]=str_replace("PIEMONTE 01 - ","",$city_a[2]);
+      $city_a[2]=str_replace("PIEMONTE 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("PUGLIA - ","",$city_a[2]);
   $city_a[2]=str_replace("SARDEGNA - ","",$city_a[2]);
   $city_a[2]=str_replace("SICILIA 1 - ","",$city_a[2]);
     $city_a[2]=str_replace("SICILIA 2 - ","",$city_a[2]);
+    $city_a[2]=str_replace("SICILIA 01 - ","",$city_a[2]);
+      $city_a[2]=str_replace("SICILIA 02 - ","",$city_a[2]);
   $city_a[2]=str_replace("TOSCANA - ","",$city_a[2]);
   $city_a[2]=str_replace("TRENTINO-ALTO ADIGE/SUDTIROL - ","",$city_a[2]);
   $city_a[2]=str_replace("TRENTINO-ALTO ADIGE/SÜDTIROL - ","",$city_a[2]);
   $city_a[2]=str_replace("TRENTINO-ALTO ADIGE/S‹DTIROL - ","",$city_a[2]);
-
+  $city_a[2]=str_replace("SICILIA -","",$city_a[2]);
+  $city_a[2]=str_replace("PIEMONTE -","",$city_a[2]);
+  $city_a[2]=str_replace("LAZIO - ","",$city_a[2]);
+    $city_a[2]=str_replace("VENETO - ","",$city_a[2]);
+      $city_a[2]=str_replace("PUGLIA - ","",$city_a[2]);
   $city_a[2]=str_replace("UMBRIA - ","",$city_a[2]);
   $city_a[2]=str_replace("VENETO 1 - ","",$city_a[2]);
   $city_a[2]=str_replace("VENETO 2 - ","",$city_a[2]);
+  $city_a[2]=str_replace("VENETO 01 - ","",$city_a[2]);
+  $city_a[2]=str_replace("VENETO 02 - ","",$city_a[2]);
+
+  $city_a[3]=str_replace("'","",$city_a[3]);
 //  $city_a[3]=str_replace(" ","%20",$city_a[3]);
 
   if ($city_a[3]===$citycorretta){
@@ -258,7 +311,7 @@ foreach ($csv1 as $city_name => $city_a) {
 
     foreach ($csvcandidati as $city_name => $city_a) {
 
-      if (strpos($city_a[3],$colunicam) !== false) {
+      if (strpos($city_a[3],trim($colunicam)) !== false) {
 
     echo $city_a[0]." - <b>".$city_a[5]."</b></br>";
 
@@ -271,7 +324,7 @@ foreach ($csv1 as $city_name => $city_a) {
       $csvcandidati = array_map('str_getcsv',file('WCamPluri.csv'));
 
       foreach ($csvcandidati as $city_name => $city_a) {
-          if (strpos($city_a[2],$colpluricam) !== false) {
+          if (strpos($city_a[2],trim($colpluricam)) !== false) {
 
         echo $city_a[0]." - <b>".$city_a[4]."</b></br>";
 

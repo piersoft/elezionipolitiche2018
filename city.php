@@ -136,6 +136,7 @@ foreach ($csv as $city_name => $city_a) {
     if (strpos($city_a[1],$city) !== false) {
       $idcomune=$city_a[0];
       $citycorretta=$city_a[1];
+      $city_a[2]=str_replace("'","",$city_a[2]);
     //  echo $idcomune."\n ";
     //  echo $citycorretta."\n</br>";
       $url="<a href='cerca.php?city=".$city_a[2]."'>".$city_a[2]."</a>";

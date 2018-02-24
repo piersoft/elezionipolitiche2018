@@ -45,7 +45,7 @@ table, th, td {
       background: #F8F8F8;
       padding: 30px 30px 20px 30px;
       font: 18px "Titillium Web",Arial, Helvetica, sans-serif;
-      color: #666;
+      color: #000;
       border-radius: 5px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
